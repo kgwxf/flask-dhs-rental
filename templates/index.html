@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hail Caesar!</title>
+        <style>
+            body, html {
+                margin: 0;
+                font-family: sans-serif;
+            }
+
+            .content {
+                margin: 0;
+                width: 500px;
+                display: block;
+                align-content: center;
+
+            }
+
+            table, td, th {
+                border: 1px solid #aaa;
+                
+            }
+
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            th {
+                height: 30px;
+                width: 100px;
+                margin-left: auto;
+            }
+
+            td {
+                text-align: left;
+                padding: 5px;
+            }
+
+            .form {
+                margin-top: 20px;
+            }
+        </style>
+</head>
+
+<body>
+    <h1 style="text-align: center">OwO</h1>
+    {% if tasks|length < 1 %}
+    <h4 style="text-align: center">There are no entries. Add more!</h4>
+    {% else %}
+    <div class="content">
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Code Name</th>
+            <th>Equipment</th>
+            <th>Status</th>
+            <th>Previous Borrower</th>
+            <th>Email</th>
+            <th>Date Borrowed</th>
+            <th>Borrower</th>
+            <th>Email</th>
+            <th>Date Borrowed</th>
+            <th>Report</th>
+        </tr>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.id }}</td>
+                <td>{{ task.code_name }}</td>
+                <td>{{ task.eq_type }}</td>
+                <td>{{ task.status }}</td>
+                <td>{{ task.prev_name }}</td>
+                <td>{{ task.prev_email }}</td>
+                <td>{{ task.prev_date_borrow }}</td>
+                <td>{{ task.name }}</td>
+                <td>{{ task.email }}</td>
+                <td>{{ task.date_borrow }}</td>
+                <td>{{ task.report }}</td>
+                <td>
+                    <a href="/delete/{{task.id}}">Delete</a>
+                    <br>
+                    <a href="/update/{{task.id}}">Update</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+    {% endif %}
+
+    <div class="form">
+        <form action="/index" method="POST">
+            <input type="text" name="code_name" id="code_name" placeholder="code_name">
+            <input type="text" name="eq_type" id="eq_type" placeholder="eq_type">
+            <input type="text" name="status" id="status" placeholder="status">
+            <input type="submit" name="submit" id="submit" placeholder="Submit">
+        </form>
+    </div>
+</div>
+</body>
+</html>

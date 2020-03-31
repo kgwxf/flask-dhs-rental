@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Task Master</title>
+{% endblock %}
+
+{% block body %}
+<div class="container-contact100">
+    <div class="wrap-contact100">
+        {% if check == 'form' %}
+        <p>You have successfully borrowed {{ item.code_name }}-{{ item.eq_type }} on {{item.date_borrow}}. 
+            Please return the item by {{item.date_borrow[:10]}} 18:00:00.
+        </p>
+        <form action='/'>
+            <input class="returnhome" type="text" readonly>
+            <div class="container-contact100-form-btn">
+                <div class="wrap-contact100-form-btn">
+                    <div class="contact100-form-bgbtn"></div> 
+                    <button class="contact100-form-btn" href="url_for('home')">
+                        <span>
+                            Return to Home
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </form>
+        {% elif check == 'return' %} 
+        <p>You have successfully returned {{ item.code_name }}-{{ item.eq_type }} on {{time}}. 
+        </p>
+        <form action='/'>
+            <input class="returnhome" type="text" readonly>
+            <div class="container-contact100-form-btn">
+                <div class="wrap-contact100-form-btn">
+                    <div class="contact100-form-bgbtn"></div> 
+                    <button class="contact100-form-btn">
+                        <span>
+                            Return to Home
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        {% endif %}
+
+    </div>
+</div>
+{% endblock %}
