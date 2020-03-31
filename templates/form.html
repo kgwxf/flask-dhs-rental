@@ -1,13 +1,19 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Equipment Rental</title>
 {% endblock %}
 
 {% block body %}
 <div class="container-contact100">
     <div class="wrap-contact100">
-        <span class="contact100-form-title">Hello</span>
+            {% if camus == "Exists" %}
+            <div class='space'></div>
+            <img src="{{url_for('static',filename='images/camus.jpg')}}" id = "camus" alt="camus" height="300" width="300">
+            {% else %}
+            <span class="contact100-form-title">
+                Rental Service
+             </span>
+            {% endif %}
             <div class="container-table100">
                 <div class="wrap-table100">
                         <div class="table">
@@ -43,13 +49,13 @@
             <form action="/form/{{item.id}}" method="POST" class="contact100-form validate-form">
             <div class="wrap-input100 validate-input" data-validate="Name is required">
                 <span class="label-input100">Your Name</span>
-                <input class="input100" type="text" name="name" placeholder="Enter your name">
+                <input class="input100" type="text" name="name" placeholder="Enter your name" required>
                 <span class="focus-input100"></span>
             </div>
 
-            <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+            <div class="wrap-input100 validate-input">
                 <span class="label-input100">Email</span>
-                <input class="input100" type="text" name="email" placeholder="Enter your email addess">
+                <input class="input100" type="text" name="email" placeholder="Enter your email addess" required>
                 <span class="focus-input100"></span>
             </div>
             <div class="container-contact100-form-btn">
@@ -66,9 +72,9 @@
         </form>
             {% else %}
         <form action="/rtn/{{item.id}}" method="POST" class="contact100-form validate-form">
-            <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+            <div class="wrap-input100 validate-input" >
                 <span class="label-input100">Email</span>
-                <input class="input100" type="text" name="email2" placeholder="Enter your email addess">
+                <input class="input100" type="text" name="email2" placeholder="Enter your email addess" required>
                 <span class="focus-input100"></span>
             </div>
             <div class="container-contact100-form-btn">
@@ -90,12 +96,12 @@
                         <div class="contact100-form-bgbtn"></div>
                         <button class="contact100-form-btn2">
                             <span>
-                                 Return to Home
+                                Home
                             </span>
                         </button>
                     </div>
                 </div>
-                <input class="returnhome" type="text" readonly>
+                <input class="returnhome" type="hidden" readonly>
             </form>
     </div>
 </div>

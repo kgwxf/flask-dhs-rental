@@ -1,7 +1,10 @@
 .dhslogo {
   align-content: center;
 }
-
+#camus {
+  align-content: center;
+  display: block;
+}
 
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/

@@ -1,10 +1,47 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Task Master</title>
 {% endblock %}
 
 {% block body %}
+<div class="container-contact100">
+    <div class="wrap-contact100">
+<form action="/update/{{task.id}}" method="POST" class="contact100-form">
+    <div class="wrap-input100 validate-input">
+        <span class="label-input100">Code</span>
+        <input class="input100" type="text" name="code_name" value="{{task.code_name}}" placeholder="Enter your name">
+        <span class="focus-input100"></span>
+    </div>
+
+    <div class="wrap-input100 validate-input" >
+        <span class="label-input100">Equipment</span>
+        <input class="input100" type="text" name="eq_type" value="{{task.eq_type}}" placeholder="Enter your email addess">
+        <span class="focus-input100"></span>
+    </div>
+    <div class="wrap-input100 validate-input" >
+        <span class="label-input100">Status</span>
+        <input class="input100" type="text" name="status" value="{{task.status}}" placeholder="Enter your email addess">
+        <span class="focus-input100"></span>
+    </div>
+    <div class="wrap-input100 validate-input" >
+        <span class="label-input100">Report</span>
+        <input class="input100" type="text" name="report" value="{{task.report}}" placeholder="Enter your email addess">
+        <span class="focus-input100"></span>
+    </div>
+    <div class="container-contact100-form-btn">
+        <div class="wrap-contact100-form-btn">
+            <div class="contact100-form-bgbtn"></div>
+            <button class="contact100-form-btn">
+                <span>
+                    Update
+                </span>
+            </button>
+        </div>
+    </div>
+</form>
+</div>
+</div>
+{% endblock %}
 <div class="content">
     <h1 style="text-align: center">Update Task</h1>
 
@@ -17,4 +54,3 @@
         </form>
     </div>
 </div>
-{% endblock %}

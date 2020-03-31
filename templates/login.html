@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 
 {% block head %}
-<title>Webapp</title>
 {% endblock head %}
 
 {% block body %}
@@ -14,14 +13,14 @@
             Admin Login
          </span>
         <form action="/login" method="POST" class="contact100-form">
-            <div class="wrap-input100 validate-input" data-validate="Name is required">
+            <div class="wrap-input100 validate-input" >
                 <span class="label-input100">Username</span>
-                <input class="input100" type="text" name="username" placeholder="">
+                <input class="input100" type="text" name="username" placeholder="" required>
                 <span class="focus-input100"></span>
             </div>
-            <div class="wrap-input100 validate-input" data-validate="Name is required">
+            <div class="wrap-input100 validate-input" >
                 <span class="label-input100">Password</span>
-                <input class="input100" type="text" name="password" placeholder="">
+                <input class="input100" type="password" name="password" placeholder="" required>
                 <span class="focus-input100"></span>
             </div>
             <p>{{error}}</p>
@@ -49,7 +48,7 @@
                     </button>
                 </div>
             </div>
-            <input class="returnhome" type="text" readonly>
+            <input class="returnhome" type="hidden">
     </form>
     </div>
 </div>

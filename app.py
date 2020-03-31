@@ -35,7 +35,9 @@ def home():
             if item == None:
                 error = 'No such item!'
                 return render_template('home.html', error = error)
-                
+            elif code == 'Camus':
+                camus = 'Exists'
+                return render_template('form.html',item = item, camus = camus)
             return render_template('form.html',item = item)
     else:
         return render_template('home.html', error = error)
@@ -96,6 +98,7 @@ def update(id):
         task.code_name = request.form['code_name']
         task.status = request.form['status']
         task.eq_type = request.form['eq_type']
+        task.report = request.form['report']
         try:
             db.session.commit()
             return redirect('/index')
@@ -144,7 +147,6 @@ def rtn(id):
             return render_template('display.html', item = rtn, check = check, time = time)
         except:
             return 'There was an issue updating your task'
-
     else:
         return render_template('form.html', item = rtn)
 
