@@ -7,8 +7,8 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 db = SQLAlchemy(app)
 app.secret_key = 'Hello'
 
-class Todo(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+class Todo(db.Model): # maybe can use more succinct naming conventions
+    id = db.Column(db.Integer, primary_key=True) 
     code_name = db.Column(db.String(200), nullable=False)
     eq_type = db.Column(db.String(200), nullable=False)
     status = db.Column(db.String(200), nullable=False)
